@@ -35,12 +35,12 @@ const getCurrentPageReducer = (rootState: PaginationState) =>
                 return limitPageBounds(
                     rootState.totalItems,
                     action.pageSize
-                )(action.nextPage ?? state);
+                )(action.nextPage || state);
             case "SET_TOTALITEMS":
                 return limitPageBounds(
                     action.totalItems,
                     rootState.pageSize
-                )(action.nextPage ?? state);
+                )(action.nextPage || state);
             /* istanbul ignore next */
             default:
                 return state;
